@@ -1,7 +1,7 @@
 package com.example.questapi_215.repositori
 
 import android.app.Application
-import com.example.questapi_215.ServiceApiSiswa
+import com.example.questapi_215.apiservice.ServiceApiSiswa
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -39,7 +39,7 @@ class DefaultContainerApp : ContainerApp {
     }
 
     override val repositoryDataSiswa: RepositoryDataSiswa by lazy {
-        JaringanRepositoryDataSiswa(retrofitService)
+        JaringanRepositoryDataSiswa(retrofitService as ServiceApiSiswa)
     }
 }
 
