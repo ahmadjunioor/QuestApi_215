@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.act8_localrestapi"
+    namespace = "com.example.questapi_215"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.act8_localrestapi"
+        applicationId = "com.example.questapi_215"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
