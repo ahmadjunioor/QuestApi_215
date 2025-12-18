@@ -14,7 +14,7 @@ interface ContainerApp {
 }
 
 class DefaultContainerApp : ContainerApp {
-    private val baseurl = "http:10.0.2.2/umyTI/"
+    private val baseurl = "http://169.254.149.75/umyTI/"
 
     val logging = HttpLoggingInterceptor().apply{
         level = HttpLoggingInterceptor.Level.BODY
@@ -32,14 +32,14 @@ class DefaultContainerApp : ContainerApp {
                 prettyPrint = true
                 isLenient = true
             }.asConverterFactory("application/json".toMediaType())
-        )
+        ).build()
 
-    private val retrofitService: RepositoryDataSiswa by lazy {
+    private val retrofitService: ServiceApiSiswa by lazy {
         retrofit.create(ServiceApiSiswa::class.java)
     }
 
     override val repositoryDataSiswa: RepositoryDataSiswa by lazy {
-        JaringanRepositoryDataSiswa(retrofitService as ServiceApiSiswa)
+        JaringanRepositoryDataSiswa(retrofitService)
     }
 }
 
